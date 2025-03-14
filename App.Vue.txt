@@ -1,0 +1,187 @@
+<template>
+  <!-- <div class="min-h-screen flex items-center justify-center bg-gray-50 p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <CardComponent
+        v-for="(card, index) in cards"
+        :key="index"
+        v-bind="card"
+      />
+    </div>
+  </div> -->
+  <div class="flex justify-center items-start space-x-5 p-10">
+    <!-- Left Sticky Profile -->
+    <!-- <StickyProfileCard
+      :imageSrc="profileImg"
+      :displayName="'Andrew Chapman'"
+      :isVerified="true"
+      :verificationIcon="verfiedBadge"
+      :verificationText="'Verified Provider'"
+      :ratingValue="4.5"
+      :totalReviews="450"
+      :specializationLabel="'Primary Specialization'"
+      :specializationValue="'Family Medicine'"
+      :badgeOne="'MD'"
+      :badgeOneIcon="education"
+      :badgeTwo="'12 Years'"
+      :badgeTwoIcon="experiance"
+      :badgeThree="'8 KM'"
+      :badgeThreeIcon="Distance"
+      :statOneLabel="'Specialties'"
+      :statOneValue="25"
+      :statTwoLabel="'Hospitals'"
+      :statTwoValue="2590"
+      :locationLabel="'Location'"
+      :locationValue="'440 Parker Rd. Allentown, NM 31134'"
+      :contactInfo="'(270) 555-0117'"
+      :buttonText="'Add a Review'"
+      :handleButtonClick="handleReviewClick"
+    /> -->
+    <PageHeader
+      headerTitle="Provider's Details"
+      :actionButtons="[
+        {
+          label: 'Share',
+          icon: Call,
+          onClick: () => console.log('Share Clicked'),
+        },
+        {
+          label: 'Give Endorse',
+          icon: Like,
+          bgColor: 'bg-blue-600 text-white',
+          onClick: () => console.log('Endorse Clicked'),
+        },
+        {
+          label: 'Disapprove',
+          icon: Dislike,
+          bgColor: 'bg-red-500 text-white',
+          onClick: () => console.log('Disapprove Clicked'),
+        },
+      ]"
+    />
+  </div>
+</template>
+
+<script setup>
+import CardComponent from "~/components/CardComponent.vue";
+import StickyProfileCard from "./components/StickyProfileCard.vue";
+import verfiedBadge from "./assets/svgs/verifiedBadge.svg";
+import profileImg from "./assets/svgs/avatar-1.svg";
+import education from "./assets/svgs/Education.svg";
+import experiance from "./assets/svgs/Experience.svg";
+import Distance from "./assets/svgs/Distance.svg";
+import Call from "./assets/svgs/Call.svg";
+import Like from "./assets/svgs/Like.svg";
+import Dislike from "./assets/svgs/Dislike.svg";
+import PageHeader from "./components/PageHeader.vue";
+const cards = [
+  {
+    title: "Danielle  Fuchs ",
+    imageSrc: "../assets/svgs/avatar-1.svg",
+    isVerified: true,
+    ratingValue: 4,
+    badge1: "MD",
+    badge2: "12 Years",
+    label: "Primary Specialization",
+    highlightedText: "Health Care Professional ",
+    distanceValue: 8,
+    locationText: "2041 Martin Luther King Jr Ave Se,  Washington, DC 20020",
+  },
+  // Duplicate 8 more times to make a total of 9 cards
+  {
+    title: "Cade Barker ",
+    imageSrc: "../assets/svgs/avatar-2.svg",
+    isVerified: true,
+    ratingValue: 5,
+    badge1: "DO",
+    badge2: "15 Years",
+    label: "Primary Specialization",
+    highlightedText: "Health Care Professional ",
+    distanceValue: 5,
+    locationText: "2212 Field Ln,  Mansfield, TX 76063",
+  },
+  {
+    title: "Sanjeev C. Patel",
+    imageSrc: "../assets/svgs/avatar-3.svg",
+    isVerified: true,
+    ratingValue: 4.5,
+    badge1: "MBBS",
+    badge2: "10 Years",
+    label: "Primary Specialization",
+    highlightedText: "Anesthesiology",
+    distanceValue: 12,
+    locationText: "1800 Barrs St, Jacksonville, FL 32204",
+  },
+  {
+    title: "Soheir  Boshra",
+    imageSrc: "../assets/svgs/avatar-4.svg",
+    isVerified: false,
+    ratingValue: 4.2,
+    badge1: "MD",
+    badge2: "8 Years",
+    label: "Primary Specialization",
+    highlightedText: "Family Medicine ",
+    distanceValue: 7,
+    locationText: "2001 Crystal Spring Ave Sw,  Roanoke, VA 24014",
+  },
+  {
+    title: "Susan E. Opper",
+    imageSrc: "../assets/svgs/avatar-1.svg",
+    isVerified: true,
+    ratingValue: 4.8,
+    badge1: "DO",
+    badge2: "20 Years",
+    label: "Primary Specialization",
+    highlightedText: "Anesthesiology ",
+    distanceValue: 9,
+    locationText: "4321 Washington Street,  Kansas City, MO 64111",
+  },
+  {
+    title: "Barbara K. Hayes",
+    imageSrc: "../assets/svgs/avatar-2.svg",
+    isVerified: false,
+    ratingValue: 4.1,
+    badge1: "MBBS",
+    badge2: "6 Years",
+    label: "Primary Specialization",
+    highlightedText: "Social Worker",
+    distanceValue: 4,
+    locationText: "34 Jerome Ave,  Bloomfield, CT 06002",
+  },
+  // {
+  //   title: 'Daniel Martinez',
+  //   imageSrc: '/path-to-image.jpg',
+  //   isVerified: true,
+  //   ratingValue: 4.9,
+  //   badge1: 'MD',
+  //   badge2: '18 Years',
+  //   label: 'Primary Specialization',
+  //   highlightedText: 'Orthopedics',
+  //   distanceValue: 10,
+  //   locationText: '76 Greenway Road, Seattle, WA 98101',
+  // },
+  // {
+  //   title: 'Olivia White',
+  //   imageSrc: '/path-to-image.jpg',
+  //   isVerified: true,
+  //   ratingValue: 4.3,
+  //   badge1: 'DO',
+  //   badge2: '9 Years',
+  //   label: 'Primary Specialization',
+  //   highlightedText: 'Gynecology',
+  //   distanceValue: 6,
+  //   locationText: '58 Park Avenue, New York, NY 10016',
+  // },
+  // {
+  //   title: 'William Taylor',
+  //   imageSrc: '/path-to-image.jpg',
+  //   isVerified: false,
+  //   ratingValue: 4.0,
+  //   badge1: 'MBBS',
+  //   badge2: '7 Years',
+  //   label: 'Primary Specialization',
+  //   highlightedText: 'Endocrinology',
+  //   distanceValue: 11,
+  //   locationText: '99 Sunshine Road, Chicago, IL 60610',
+  // },
+];
+</script>
